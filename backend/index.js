@@ -1,11 +1,15 @@
 // app.js
-
+const cors = require("cors");
 const express = require('express');
 const mongoose = require('mongoose');
+const authRoute = require("./routes/auth");
 const bodyParser = require('body-parser');
-
+const cookieSession = require("cookie-session");
+const passport = require('passport')
+require("dotenv").config()
+const passportStrategy = require("./passport");
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://jashwanth0712:vashishtpassword@vashisht.skfu3pn.mongodb.net/', {
+mongoose.connect(process.env.MONDOGODB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
@@ -25,7 +29,23 @@ const User = mongoose.model('User', userSchema);
 // Create Express app
 const app = express();
 app.use(bodyParser.json());
-
+app.use(
+	cookieSession({
+		name: "session",
+		keys: ["jashwanth"],
+		maxAge: 24 * 60 * 60 * 100,
+	})
+);
+app.use(
+	cors({
+		origin: "http://localhost:3000",
+		methods: "GET,POST,PUT,DELETE",
+		credentials: true,
+	})
+);
+app.use(passport.initialize());
+app.use(passport.session());
+app.use("/auth", authRoute);
 // Define a route to create a new user
 app.post('/users', async (req, res) => {
   try {
@@ -94,7 +114,7 @@ app.delete('/users/:id', async (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
