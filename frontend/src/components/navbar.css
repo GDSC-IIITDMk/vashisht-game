@@ -38,7 +38,8 @@
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;
-    margin-right: 0.625rem; /* Adjust margin as needed */
+    margin-right: 1px;
+    margin-left: 0.625rem; /* Adjust margin as needed */
   }
   .smaller-img {
     width: 1rem; /* Adjust the size as needed */
@@ -56,6 +57,22 @@
   .name {
     font-weight: bold;
   }
+
+  .myprofile
+{
+  font-weight: bold;
+  margin: 0px;
+  margin-bottom: 10px;
+}
+
+  .token{
+    margin: 0;
+    color: rgb(96, 96, 96);
+    font-size: 12px;
+  }
+
+  
+
   .email{
     font-size: smaller;
     font-weight: 300;
@@ -68,6 +85,9 @@
     padding: 0.625rem;
     display: flex;
     flex-direction: column;
+    background-color: rgb(214, 214, 214);
+    margin-top: 25px;
+    border-radius: 5px;
   }
   
   button {

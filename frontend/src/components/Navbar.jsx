@@ -24,11 +24,11 @@ function Navbar(userdata) {
         {
             user ?
             <div className="profile" onClick={toggleDropdown}>
-          <img src={user.picture} alt="profile" className="profile-img" />
           <div className="profile-details">
             <span className="name">{user.name}</span>
-            <span className="email">{user.email}</span>
+            <p className="token">Remaining tokens</p>
           </div>
+          <img src={user.picture} alt="profile" className="profile-img" />
           {
             dropdownVisible ?
             <img className="profile-img smaller-img rotated" src='https://cdn-icons-png.flaticon.com/512/2985/2985150.png'/>
@@ -37,9 +37,14 @@ function Navbar(userdata) {
 
         }
           {dropdownVisible && (
+            
             <div className="dropdown">
+              <span className="name">{user.name}</span>
+              <span className="email">{user.email}</span>
+              <p className="myprofile">View My Profile</p>
               <button className='button-75' onClick={logout}>Log Out</button>
             </div>
+            
           )
           }
         </div>
