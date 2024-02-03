@@ -1,0 +1,59 @@
+/* Leaderboard.css */
+
+.leaderboard-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .leaderboard-list {
+    margin-top: 20px;
+  }
+  
+  .leaderboard-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+  
+  .leaderboard-entry:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .even {
+    background-color: #f9f9f9;
+  }
+  
+  .odd {
+    background-color: #fff;
+  }
+  
+  .rank {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-right: 10px;
+    color: #3498db;
+  }
+  
+  .user-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .user-name {
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+  
+  .user-balance {
+    color: #555;
+  }
+  
