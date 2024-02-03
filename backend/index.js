@@ -58,18 +58,16 @@ app.post('/users', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
-
 // Define a route to get all users
 app.get('/users', async (req, res) => {
   try {
-    const users = await User.find();
+    const users = await User.find().sort({ balance: -1 }); // Sort by balance in descending order
     res.json(users);
   } catch (err) {
     console.error(err);
     res.status(500).send('Server Error');
   }
 });
-
 // Define a route to get a single user by ID
 app.get('/users/:id', async (req, res) => {
   try {
