@@ -12,7 +12,7 @@ function Login() {
 	return (
 		<div className={styles.container} style={{marginTop:"10vh"}}>
 					<button className={styles.google_btn} onClick={googleAuth}>
-						<span>Sing in with Google</span>
+						<span>Sign in with Google</span>
 					</button>
 		</div>
 	);
